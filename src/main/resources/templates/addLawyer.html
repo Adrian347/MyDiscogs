@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Lawyer</title>
+<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+</head>
+<body>
+<nav>
+<div class="dropdown-container">
+	<div id="dropdown-title"><a href="/" style="text-decoration:none;color:black">Home</a></div>
+</div>
+<div class="dropdown-container">
+	<div id="dropdown-title">View</div>
+	<div id="dropdown-menu">
+		<div class="dropdown-link"><a href="/viewLawyers">Lawyers</a></div>
+		<div class="dropdown-link"><a href="/viewArt">Art</a></div>
+	</div>
+</div>
+<div class="dropdown-container">
+	<div id="dropdown-title">Add</div>
+	<div id="dropdown-menu">
+		<div class="dropdown-link"><a href="/addLawyer">Lawyer</a></div>
+		<div class="dropdown-link"><a href="/addArt">Art</a></div>
+	</div>
+</div>
+</nav>
+<h1>Add Lawyer</h1>
+<form th:action="@{/addLawyer}" method="post" th:object="${lawyer}">
+<input type="hidden" th:field="*{id}"><br>
+Lawyer Name: <input type="text" th:field="*{name}"><br>
+<input type="submit" value="Add Lawyer">
+</form>
+<footer>
+&copy; Adrian Davies, 2023
+</footer>
+</body>
+</html>

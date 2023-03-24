@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View Lawyers</title>
+<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+
+</head>
+<body>
+<nav>
+<div class="dropdown-container">
+	<div id="dropdown-title"><a href="/" style="text-decoration:none;color:black">Home</a></div>
+</div>
+<div class="dropdown-container">
+	<div id="dropdown-title">View</div>
+	<div id="dropdown-menu">
+		<div class="dropdown-link"><a href="/viewLawyers">Lawyers</a></div>
+		<div class="dropdown-link"><a href="/viewArt">Art</a></div>
+	</div>
+</div>
+<div class="dropdown-container">
+	<div id="dropdown-title">Add</div>
+	<div id="dropdown-menu">
+		<div class="dropdown-link"><a href="/addLawyer">Lawyer</a></div>
+		<div class="dropdown-link"><a href="/addArt">Art</a></div>
+	</div>
+</div>
+</nav>
+<h1>View Lawyers</h1>
+<table border="1">
+	<tr>
+		<th>Lawyer ID</th>
+		<th>Lawyer Name</th>
+	</tr>
+	<tr th:each="l : ${lawyerList}">
+		<td th:text="${l.id}"></td>
+		<td th:text="${l.name}"></td>
+	</tr>
+</table>
+<footer>
+&copy; Adrian Davies, 2023
+</footer>
+</body>
+</html>

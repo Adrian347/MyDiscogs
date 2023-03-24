@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Lawny Lawyers</title>
+<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+</head>
+<body>
+<nav>
+<div class="dropdown-container">
+	<div id="dropdown-title"><a href="/" style="text-decoration:none;color:black">Home</a></div>
+</div>
+<div class="dropdown-container">
+	<div id="dropdown-title">View</div>
+	<div id="dropdown-menu">
+		<div class="dropdown-link"><a href="/viewLawyers">Lawyers</a></div>
+		<div class="dropdown-link"><a href="/viewArt">Art</a></div>
+	</div>
+</div>
+<div class="dropdown-container">
+	<div id="dropdown-title">Add</div>
+	<div id="dropdown-menu">
+		<div class="dropdown-link"><a href="/addLawyer">Lawyer</a></div>
+		<div class="dropdown-link"><a href="/addArt">Art</a></div>
+	</div>
+</div>
+</nav>
+<h1>Welcome to Lawny Lawyers!</h1>
+<main>
+<p>Lawny Lawyers is a web application that consumes a RESTful web service. The service
+makes use of basic CRUD operations and JPA repositories to manage employee (Lawyer) and
+product (Art) entities. Cardinality between entities is such that employees maintain 
+a one-to-many relationship with their products.
+
+<p>Employees and products have been bootstrapped in to the application; to view, select
+View from the navigation bar. Products can also be edited or deleted from the repository
+ from here. To add a new employee or product to the repository, select Add. 
+ 
+<p>This application also demonstrates some styling using HTML/CSS.
+</main>
+<footer>
+&copy; Adrian Davies, 2023
+</footer>
+</body>
+</html>
