@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>My Discogs</title>
+<title>Edit Album</title>
 <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+
 </head>
 <body>
 <nav>
@@ -22,18 +23,24 @@
 	<div id="dropdown-title"><a href="/addAlbum" style="text-decoration:none;color:black">Add</a></div>
 </div>
 </nav>
-<h1>Welcome to My Discogs!</h1>
-<main>
-<p>My Discogs is a Spring Boot web application that consumes a RESTful web service. The 
-service makes use of basic CRUD operations and a MySQL persistent database to manage 
-entities. The entities represent the LPs, CDs, and cassette tapes in my record collection.
+<h1>Edit Album</h1>
+<form th:action="@{/editAlbum}" method="post" th:object="${album}">
+<input type="hidden" th:field="*{id}"><br>
+Artist: <input type="text" th:field="*{artist}"><br>
+Title: <input type="text" th:field="*{title}"><br>
+Format: <select name="releaseFormat" th:field="*{releaseFormat}">
+	<option th:text="Vinyl" th:value="'Vinyl'">
+	<option th:text="CD" th:value="'CD'">
+	<option th:text="Cassette" th:value="'Cassette'">
+</select><br>
+Release Year: <input type="text" th:field="*{releaseYear}"><br>
+Ownership: <select name="ownership" th:field="*{ownership}">
+	<option th:text="Owned" th:value="'Owned'">
+	<option th:text="Wishlist" th:value="'Wishlist'">
+</select><br>
 
-<p>To view the collection, select one of the View options from the navigation bar. Records 
-can also be edited or deleted from the database via the Options menu. To add a new record 
-to the repository, select Add. 
- 
-<p>This application also demonstrates some styling using HTML/CSS.
-</main>
+<input type="submit" value="Edit Album">
+</form>
 <footer>
 &copy; Adrian Davies, 2023
 </footer>

@@ -9,12 +9,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Art {
+public class Album {
 
 	private Long id;
-	private String name;
-	private double price;
-	private int quantity;
-	private String employeeName;
+	private String artist;
+	private String title;
+	private String releaseFormat;
+	private String releaseYear;
+	private String ownership;
 	
 }

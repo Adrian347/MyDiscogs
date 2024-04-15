@@ -41,6 +41,11 @@ footer
 	margin-bottom: 20px;
 }
 
+.tableId
+{
+	visibility: hidden;
+}
+
 #content
 {
 	display: flex;

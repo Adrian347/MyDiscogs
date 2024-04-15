@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>My Discogs</title>
+<title>View Albums</title>
 <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
 </head>
 <body>
@@ -22,18 +22,28 @@
 	<div id="dropdown-title"><a href="/addAlbum" style="text-decoration:none;color:black">Add</a></div>
 </div>
 </nav>
-<h1>Welcome to My Discogs!</h1>
-<main>
-<p>My Discogs is a Spring Boot web application that consumes a RESTful web service. The 
-service makes use of basic CRUD operations and a MySQL persistent database to manage 
-entities. The entities represent the LPs, CDs, and cassette tapes in my record collection.
-
-<p>To view the collection, select one of the View options from the navigation bar. Records 
-can also be edited or deleted from the database via the Options menu. To add a new record 
-to the repository, select Add. 
- 
-<p>This application also demonstrates some styling using HTML/CSS.
-</main>
+<h1>View Albums</h1>
+<table border="1">
+	<tr>
+		<th class="tableId">ID</th>
+		<th>Artist</th>
+		<th>Title</th>
+		<th>Release Year</th>
+		<th>Format</th>
+		<th>Ownership</th>
+		<th>Options</th>
+	</tr>
+	<tr th:each="album : ${albumList}">
+		<td class="tableId" th:text="${album.id}"></td>
+		<td th:text="${album.artist}"></td>
+		<td th:text="${album.title}"></td>
+		<td th:text="${album.releaseYear}"></td>
+		<td th:text="${album.releaseFormat}"></td>
+		<td th:text="${album.ownership}"></td>
+		<td><a th:href="@{/editAlbum/{id}(id=${album.id})}">EDIT</a> | 
+		<a th:href="@{/delete/{id}(id=${album.id})}">DELETE</a></td>
+	</tr>
+</table>
 <footer>
 &copy; Adrian Davies, 2023
 </footer>
