@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View Wishlist</title>
+<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+</head>
+<body>
+<nav>
+<div class="dropdown-container">
+	<div id="dropdown-title"><a href="/" style="text-decoration:none;color:black">Home</a></div>
+</div>
+<div class="dropdown-container">
+	<div id="dropdown-title">View</div>
+	<div id="dropdown-menu">
+		<div class="dropdown-link"><a href="/viewAlbums">All</a></div>
+		<div class="dropdown-link"><a href="/viewOwned">Owned</a></div>
+		<div class="dropdown-link"><a href="/viewWishlist">Wishlist</a></div>
+	</div>
+</div>
+<div class="dropdown-container">
+	<div id="dropdown-title"><a href="/addAlbum" style="text-decoration:none;color:black">Add</a></div>
+</div>
+</nav>
+<h1>View Wishlist</h1>
+<table border="1">
+	<tr>
+		<th class="tableId">ID</th>
+		<th>Artist</th>
+		<th>Title</th>
+		<th>Release Year</th>
+		<th>Format</th>
+		<th>Ownership</th>
+		<th>Options</th>
+	</tr>
+	<tr th:each="album : ${wishlist}">
+		<td class="tableId" th:text="${album.id}"></td>
+		<td th:text="${album.artist}"></td>
+		<td th:text="${album.title}"></td>
+		<td th:text="${album.releaseYear}"></td>
+		<td th:text="${album.releaseFormat}"></td>
+		<td th:text="${album.ownership}"></td>
+		<td><a th:href="@{/editAlbum/{id}(id=${album.id})}">EDIT</a> | 
+		<a th:href="@{/delete/{id}(id=${album.id})}">DELETE</a></td>
+	</tr>
+</table>
+<footer>
+&copy; Adrian Davies, 2023
+</footer>
+</body>
+</html>
